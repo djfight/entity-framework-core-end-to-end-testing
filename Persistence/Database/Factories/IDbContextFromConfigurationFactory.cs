@@ -2,9 +2,9 @@
 
 namespace Persistence.Database.Factories
 {
-    internal interface IDbContextFactory<out TDbContext> 
+    internal interface IDbContextFromConfigurationFactory<out TDbContext> 
         where TDbContext : DbContext
     {
-        TDbContext CreateDbContext(string connectionString);
+        TDbContext CreateDbContextFromConfiguration();
     }
 }

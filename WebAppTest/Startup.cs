@@ -4,8 +4,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+using Persistence.Database.Extensions;
 using Persistence.Database.Options;
-
+using Persistence.Extensions;
 using WebAppTest.Data;
 
 namespace WebAppTest
@@ -27,7 +28,9 @@ namespace WebAppTest
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
 
+            // add database configuration with options
             services.Configure<DatabaseOptions>(Configuration.GetSection(DatabaseOptions.Name));
+            services.AddPersistence();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
